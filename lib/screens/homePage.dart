@@ -1,4 +1,4 @@
-import 'package:developer_roadmaps/widgets/appDrawer.dart';
+import 'package:developer_roadmaps/widgets/homeCard.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,10 +12,8 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Center(
-        child: Text('홈페이지'),
-      ),
-      drawer: const AppDrawer(currentPage: '/home',)
+      body: const HomeCard(),
+      // drawer: const AppDrawer(currentPage: '/home',) not now
     );
   }
 }
