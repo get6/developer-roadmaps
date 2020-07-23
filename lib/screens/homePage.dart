@@ -1,4 +1,5 @@
-import 'package:developer_roadmaps/widgets/homeCard.dart';
+import 'package:developer_roadmaps/widgets/homePageAppBar.dart';
+import 'package:developer_roadmaps/widgets/homePageBody.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,10 +10,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: const HomeCard(),
+      appBar: HomePageAppBar(title: title,),
+      body: const HomePageBody(),
       // drawer: const AppDrawer(currentPage: '/home',) not now
     );
   }
