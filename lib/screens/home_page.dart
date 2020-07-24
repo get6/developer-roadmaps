@@ -1,5 +1,5 @@
-import 'package:developer_roadmaps/widgets/homePageAppBar.dart';
-import 'package:developer_roadmaps/widgets/homePageBody.dart';
+import 'package:developer_roadmaps/widgets/home_page_app_bar.dart';
+import 'package:developer_roadmaps/screens/home_page_body.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {

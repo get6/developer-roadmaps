@@ -1,4 +1,3 @@
-import 'package:developer_roadmaps/widgets/appDrawer.dart';
 import 'package:flutter/material.dart';
 
 class FrontendPage extends StatelessWidget {
@@ -13,7 +12,6 @@ class FrontendPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      drawer: const AppDrawer(currentPage: '/frontend'),
       body: Text('frontend'),
     );
   }

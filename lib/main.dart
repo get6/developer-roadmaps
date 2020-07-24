@@ -1,13 +1,12 @@
-
-import 'package:developer_roadmaps/screens/androidPage.dart';
-import 'package:developer_roadmaps/screens/backendPage.dart';
-import 'package:developer_roadmaps/screens/devOpsPage.dart';
-import 'package:developer_roadmaps/screens/frontendPage.dart';
-import 'package:developer_roadmaps/screens/qaEngineerPage.dart';
-import 'package:developer_roadmaps/screens/reactPage.dart';
+import 'package:developer_roadmaps/screens/android_page.dart';
+import 'package:developer_roadmaps/screens/backend_page.dart';
+import 'package:developer_roadmaps/screens/dev_ops_page.dart';
+import 'package:developer_roadmaps/screens/frontend_page.dart';
+import 'package:developer_roadmaps/screens/qa_engineer_page.dart';
+import 'package:developer_roadmaps/screens/react_page.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/homePage.dart';
+import 'screens/home_page.dart';
 
 void main() {
   runApp(MainApp());
