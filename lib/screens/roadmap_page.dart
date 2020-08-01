@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-class DevOpsPage extends StatelessWidget {
-  static const String routeName = '/devOps';
-
+class RoadmapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container();

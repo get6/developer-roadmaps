@@ -1,0 +1,15 @@
+{
+  "title": "개발자 로드맵",
+  "frontend_title": "Frontend",
+  "frontend_subtitle": "2020년 모던 프론트엔드 개발자가 되는 단계별 가이드",
+  "backend_title": "Backend",
+  "backend_subtitle": "2020년 모던 백엔드 개발자가 되는 단계별 가이드",
+  "devOps_title": "DevOps",
+  "devOps_subtitle": "2020년 SRE 또는 모든 운영 역할을 위한 단계별 가이드",
+  "react_title": "React",
+  "react_subtitle": "2020년 React 생태계에 관해 알아야 할 모든 것",
+  "android_title": "Android",
+  "android_subtitle": "2020년 모던 안드로이드 개발자가 되는 단계별 가이드",
+  "qaEngineer_title": "QA Engineer",
+  "qaEngineer_subtitle": "2020년 모던 QA 엔지니어가 되는 단계별 가이드"
+}

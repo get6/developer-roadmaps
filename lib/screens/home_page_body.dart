@@ -1,4 +1,5 @@
-import 'package:developer_roadmaps/models/constraints.dart';
+import 'package:developer_roadmaps/widgets/common_container.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class HomePageBody extends StatelessWidget {
@@ -6,81 +7,80 @@ class HomePageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [const Color(0xFF0050AC), const Color(0xFF9354B9)],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          stops: [0.3, 0.7],
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    print(context.locale.toString());
+    return CommonContainer(
+      child: ListView(
+        padding: const EdgeInsets.all(20.0),
         children: <Widget>[
           _homeCard(
-            title: Constraints.en_frontend_title,
-            subtitle: Constraints.en_frontend_subtitle,
+            context,
+            title: 'frontend_title'.tr().toString(),
+            subtitle: 'frontend_subtitle'.tr().toString(),
           ),
           _homeCard(
-            title: Constraints.en_backend_title,
-            subtitle: Constraints.en_backend_subtitle,
+            context,
+            title: 'backend_title'.tr().toString(),
+            subtitle: 'backend_subtitle'.tr().toString(),
           ),
           _homeCard(
-            title: Constraints.en_devOps_title,
-            subtitle: Constraints.en_devOps_subtitle,
+            context,
+            title: 'devOps_title'.tr().toString(),
+            subtitle: 'devOps_subtitle'.tr().toString(),
           ),
           _homeCard(
-            title: Constraints.en_react_title,
-            subtitle: Constraints.en_react_subtitle,
+            context,
+            title: 'react_title'.tr().toString(),
+            subtitle: 'react_subtitle'.tr().toString(),
           ),
           _homeCard(
-            title: Constraints.en_android_title,
-            subtitle: Constraints.en_android_subtitle,
+            context,
+            title: 'android_title'.tr().toString(),
+            subtitle: 'android_subtitle'.tr().toString(),
           ),
           _homeCard(
-            title: Constraints.en_qaEngineer_title,
-            subtitle: Constraints.en_qaEngineer_subtitle,
+            context,
+            title: 'qaEngineer_title'.tr().toString(),
+            subtitle: 'qaEngineer_subtitle'.tr().toString(),
           ),
         ],
       ),
     );
   }
 
-  Widget _homeCard({@required String title, @required String subtitle}) {
-    return Stack(
-      children: <Widget>[
-        Card(
-          margin: const EdgeInsets.symmetric(
-            vertical: 15.0,
-            horizontal: 30.0,
+  Widget _homeCard(BuildContext context,
+      {@required String title, @required String subtitle}) {
+    return Card(
+      margin: const EdgeInsets.symmetric(
+        vertical: 13.0,
+        horizontal: 25.0,
+      ),
+      child: InkWell(
+        splashColor: Colors.black,
+        onTap: () {
+          Navigator.pushNamed(context, '/' + title.toLowerCase());
+        },
+        child: ListTile(
+          contentPadding: const EdgeInsets.fromLTRB(
+            10.0,
+            2.0,
+            10.0,
+            2.0,
           ),
-          shadowColor: Colors.black,
-          child: InkWell(
-            splashColor: Colors.black,
-            onTap: () {
-              print('Card tapped');
-            },
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                ListTile(
-                  title: Text(
-                    title,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  subtitle: Text(
-                    subtitle,
-                  ),
-                ),
-              ],
+          title: Text(
+            title,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
             ),
           ),
+          subtitle: Padding(
+            padding: const EdgeInsets.only(
+              top: 1.0,
+              bottom: 1.0,
+            ),
+            child: Text(subtitle),
+          ),
         ),
-      ],
+      ),
     );
   }
 }

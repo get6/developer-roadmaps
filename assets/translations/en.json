@@ -1,0 +1,15 @@
+{
+  "title": "Developer Roadmaps",
+  "frontend_title": "Frontend",
+  "frontend_subtitle": "Step by step guide to becoming a modern frontend developer in 2020",
+  "backend_title": "Backend",
+  "backend_subtitle": "Step by step guide to becoming a modern backend developer in 2020",
+  "devOps_title": "DevOps",
+  "devOps_subtitle": "Step by step guide to become an SRE or for any operations role in 2020",
+  "react_title": "React",
+  "react_subtitle": "Everything that is there to learn about React and the ecosystem in 2020",
+  "android_title": "Android",
+  "android_subtitle": "Step by step guide to becoming a modern Android Developer in 2020",
+  "qaEngineer_title": "QA Engineer",
+  "qaEngineer_subtitle": "Step by step guide to becoming a modern QA Engineer in 2020"
+}

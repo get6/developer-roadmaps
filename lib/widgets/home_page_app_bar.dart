@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class HomePageAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -16,21 +17,19 @@ class _HomePageAppBarState extends State<HomePageAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(widget.title),
+      // title: Text('title'.tr().toString()),
+      title: Text(widget.title.tr().toString()),
       actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.list),
-          onPressed: () {},
-        )
-//        ),
-//        DropdownButton<dynamic>(
-//          items: <String>['한글', 'English', 'ZH'].map((String value) {
-//            return DropdownMenuItem<String>(
-//              value: value,
-//              child: Text(value),
-//            );
-//          }).toList(),
-//        )
+        PopupMenuButton<String>(onSelected: (String value) {
+          setState(() {
+            context.locale = Locale(value, '');
+          });
+        }, itemBuilder: (BuildContext context) {
+          return <PopupMenuItem<String>>[
+            const PopupMenuItem<String>(value: 'ko', child: Text('한국어')),
+            const PopupMenuItem<String>(value: 'en', child: Text('English')),
+          ];
+        }),
       ],
     );
   }

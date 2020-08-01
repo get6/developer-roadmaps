@@ -4,43 +4,52 @@ import 'package:developer_roadmaps/screens/dev_ops_page.dart';
 import 'package:developer_roadmaps/screens/frontend_page.dart';
 import 'package:developer_roadmaps/screens/qa_engineer_page.dart';
 import 'package:developer_roadmaps/screens/react_page.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/home_page.dart';
 
 void main() {
-  runApp(MainApp());
+  runApp(EasyLocalization(
+      supportedLocales: [
+        const Locale('en', ''),
+        const Locale('ko', ''),
+      ],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en', ''),
+      child: MainApp()));
 }
 
 class MainApp extends StatelessWidget {
-  final String title = 'Developer Roadmaps';
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: title,
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      title: 'title'.tr().toString(),
       theme: ThemeData(
         primaryColor: Colors.deepPurple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
-        '/': (BuildContext context) => HomePage(title: title),
-        '/home': (BuildContext context) => HomePage(title: title),
-        '/frontend': (BuildContext context) => FrontendPage(title: title),
+        '/': (BuildContext context) => HomePage(),
+        '/home': (BuildContext context) => HomePage(),
+        '/frontend': (BuildContext context) => FrontendPage(),
         '/backend': (BuildContext context) => BackendPage(),
-        '/devOps': (BuildContext context) => DevOpsPage(),
+        '/devops': (BuildContext context) => DevOpsPage(),
         '/react': (BuildContext context) => ReactPage(),
         '/android': (BuildContext context) => AndroidPage(),
-        '/qaEngineer': (BuildContext context) => QAEngineerPage(),
+        '/qaengineer': (BuildContext context) => QAEngineerPage(),
       },
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
 
