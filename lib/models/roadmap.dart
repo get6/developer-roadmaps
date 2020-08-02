@@ -1,4 +1,4 @@
-abstract  class Roadmap {
+abstract class Roadmap {
   Roadmap({
     this.expandedValue,
     this.headerValue,
@@ -9,5 +9,5 @@ abstract  class Roadmap {
   final String headerValue;
   bool isExpanded;
 
-  List<dynamic> makeRoadMaps();
+  Future<List<Roadmap>> makeRoadMaps();
 }

@@ -1,5 +1,4 @@
 import 'package:developer_roadmaps/models/frontend.dart';
-import 'package:developer_roadmaps/models/roadmap.dart';
 import 'package:developer_roadmaps/widgets/common_container.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +14,7 @@ class FrontendPage extends StatefulWidget {
 }
 
 class _FrontendPageState extends State<FrontendPage> {
-  final List<Roadmap> _data = Frontend().makeRoadMaps();
+  final Future<List<Frontend>> _data = Frontend().makeRoadMaps();
 
   @override
   Widget build(BuildContext context) {
@@ -23,51 +22,61 @@ class _FrontendPageState extends State<FrontendPage> {
       appBar: const HomePageAppBar(
         title: 'frontend_title',
       ),
-      body: SingleChildScrollView(
-        child: CommonContainer(
-          child: _buildPanel(),
-        ),
-      ),
+      body: FutureBuilder<List<Frontend>>(
+          future: _data,
+          builder:
+              (BuildContext context, AsyncSnapshot<List<Frontend>> snapshot) {
+            if (snapshot.hasData) {
+              return SingleChildScrollView(
+                child: CommonContainer(
+                  child: ExpansionPanelList(
+                    expansionCallback: (int index, bool isExpanded) {
+                      setState(() {
+                        snapshot.data[index].isExpanded = !isExpanded;
+                      });
+                    },
+                    children:
+                        snapshot.data.map<ExpansionPanel>((Frontend frontend) {
+                      return ExpansionPanel(
+                        headerBuilder: (BuildContext context, bool isExpanded) {
+                          return ListTile(
+                            title: Text(
+                              frontend.headerValue,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          );
+                        },
+                        body: ListTile(
+                            title: Text(frontend.expandedValue),
+                            //subtitle: Text('To delete this panel, tap the trash can icon'),
+                            trailing: Icon(Icons.arrow_forward),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/backend');
+                            }),
+                        isExpanded: frontend.isExpanded,
+                      );
+                    }).toList(),
+                  ),
+                ),
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          }),
       floatingActionButton: FloatingActionButton(
-        onPressed: () =>
-            setState(() {
-              _data.map((Roadmap Roadmap) => Roadmap.isExpanded = false).toList();
-            })
-        ,
+        onPressed: () => setState(() {
+          //_data.map((Roadmap roadmap) => roadmap.isExpanded = false).toList();
+        }),
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(16.0))),
         child: Icon(
           Icons.refresh,
         ),
       ),
-    );
-  }
-
-  Widget _buildPanel() {
-    return ExpansionPanelList(
-      expansionCallback: (int index, bool isExpanded) {
-        setState(() {
-          _data[index].isExpanded = !isExpanded;
-        });
-      },
-      children: _data.map<ExpansionPanel>((Roadmap Roadmap) {
-        return ExpansionPanel(
-          headerBuilder: (BuildContext context, bool isExpanded) {
-            return ListTile(
-              title: Text(Roadmap.headerValue,
-                style: TextStyle(fontWeight: FontWeight.bold,),),
-            );
-          },
-          body: ListTile(
-              title: Text(Roadmap.expandedValue),
-              //subtitle: Text('To delete this panel, tap the trash can icon'),
-              trailing: Icon(Icons.arrow_forward),
-              onTap: () {
-                Navigator.pushNamed(context, '/backend');
-              }),
-          isExpanded: Roadmap.isExpanded,
-        );
-      }).toList(),
     );
   }
 }

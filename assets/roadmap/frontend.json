@@ -1,0 +1,100 @@
+{
+  "Internet": [
+    {
+      "How does the internet work?": {
+        "link": "/internet/1",
+        "color": "purple"
+      }
+    },
+    {
+      "What is HTTP?": {
+        "link": "/internet/2",
+        "color": "purple"
+      }
+    },
+    {
+      "Browsers and how they work?": {
+        "link": "/internet/3",
+        "color": "purple"
+      }
+    },
+    {
+      "DNS and how it works?": {
+        "link": "/internet/4",
+        "color": "purple"
+      }
+    },
+    {
+      "What is Domain Name?": {
+        "link": "/internet/5",
+        "color": "purple"
+      }
+    },
+    {
+      "What is hosting?": {
+        "link": "/internet/6",
+        "color": "purple"
+      }
+    }
+  ],
+  "HTML": [
+    {
+      "Learn the basics": {
+        "link": "/html/1",
+        "color": "purple"
+      }
+    },
+    {
+      "Writing Semantic HTML": {
+        "link": "/html/2",
+        "color": "purple"
+      }
+    },
+    {
+      "Forms and Validations": {
+        "link": "/html/3",
+        "color": "purple"
+      }
+    },
+    {
+      "Conventions and Best Practices": {
+        "link": "/html/4",
+        "color": "purple"
+      }
+    },
+    {
+      "Accessibility": {
+        "link": "/html/5",
+        "color": "purple"
+      }
+    },
+    {
+      "SEO Basics": {
+        "link": "/html/6",
+        "color": "purple"
+      }
+    }
+  ],
+  "CSS": [
+    {
+      "Learn the basics": {
+        "link": "/html/6",
+        "color": "purple"
+      }
+    },
+    {
+      "Making Layouts": {
+        "link": "/html/6",
+        "color": "purple",
+        "children": [
+          "Floats",
+          "Positioning",
+          "Display",
+          "Box Model",
+          "CSS Grid",
+          "Flex Box"
+        ]
+      }
+    }
+  ]
+}
